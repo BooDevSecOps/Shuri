@@ -1,5 +1,7 @@
 # Base image
-FROM node:14 as build
+ARG NODE_VERSION=19.9.0
+
+FROM node:${NODE_VERSION}-alpine as build
 
 # Set working directory
 WORKDIR /app
