@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app in production mode
-RUN npm run build -- --prod
+RUN ng build --configuration=production
 
 # Use Nginx to serve the Angular app
 FROM nginx:latest
