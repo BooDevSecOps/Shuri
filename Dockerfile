@@ -1,37 +1,32 @@
-# Base image
-ARG NODE_VERSION=19.9.0
-
-FROM node:${NODE_VERSION}-alpine as build
-
-# Set working directory
-WORKDIR /app
+# Use the official Node.js image for compiling and running Angular applications
+FROM node:latest AS build
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli@latest
 
-# Copy package.json and package-lock.json
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy rest of the application code
+# Copy the entire project to the working directory
 COPY . .
 
 # Build the Angular app in production mode
-RUN ng build --prod
+RUN npm run build -- --prod
 
-# Use NGINX image for serving Angular application
-FROM nginx:1.21-alpine
+# Use Nginx to serve the Angular app
+FROM nginx:latest
 
-# Copy build output from previous stage
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy the built Angular app from the build stage
+COPY --from=build /app/dist/* /usr/share/nginx/html/
 
-# Copy nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
+# Expose port 80 to the outside world
 EXPOSE 80
 
-# Start nginx
+# Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
