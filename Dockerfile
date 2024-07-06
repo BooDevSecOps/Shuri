@@ -23,7 +23,7 @@ RUN ng build --configuration=production
 FROM nginx:latest
 
 # Copy the built Angular app from the build stage
-COPY --from=build /app/dist/* /usr/share/nginx/html/
+COPY --from=build /app/dist/coreui-free-angular-admin-template/background /usr/share/nginx/html/
 
 # Expose port 80 to the outside world
 EXPOSE 80
