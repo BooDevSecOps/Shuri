@@ -182,7 +182,7 @@ export const navItems: INavData[] = [
   },
  {
     name: 'Servers',
-    iconComponent: { name: 'cil-monitor' },
+    iconComponent: { name: 'cil-cloud' },
     url: '/servers'
   },
   {
