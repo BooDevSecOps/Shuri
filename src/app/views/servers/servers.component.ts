@@ -5,13 +5,13 @@ import { RowComponent, ColComponent, TextColorDirective, CardComponent, CardHead
 import { DocsCalloutComponent } from '@docs-components/public-api';
 
 @Component({
-    selector: 'app-charts',
+    selector: 'app-servers',
     templateUrl: './servers.component.html',
     styleUrls: ['./servers.component.scss'],
     standalone: true,
     imports: [RowComponent, ColComponent, DocsCalloutComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, ChartjsComponent]
 })
-export class ChartsComponent {
+export class ServersComponent {
 
   options = {
     maintainAspectRatio: false
