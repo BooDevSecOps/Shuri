@@ -6,8 +6,8 @@ import { DocsCalloutComponent } from '@docs-components/public-api';
 
 @Component({
     selector: 'app-charts',
-    templateUrl: './charts.component.html',
-    styleUrls: ['./charts.component.scss'],
+    templateUrl: './servers.component.html',
+    styleUrls: ['./servers.component.scss'],
     standalone: true,
     imports: [RowComponent, ColComponent, DocsCalloutComponent, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, ChartjsComponent]
 })
