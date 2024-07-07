@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 
-import { ChartsComponent } from './charts.component';
+import { ServersComponent } from './servers.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: ChartsComponent,
+    component: ServersComponent,
     data: {
-      title: 'Charts'
+      title: 'Servers'
     }
   }
 ];
